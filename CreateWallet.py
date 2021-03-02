@@ -1,9 +1,5 @@
 from stellar_sdk.keypair import Keypair
 
-def main(): 
-    information()
-    createKeys()
-
 def createKeys():
     pair = Keypair.random()
     publickey = pair.public_key

@@ -10,7 +10,6 @@ def menu():
     try: 
         userChoice = int(input("\nPlease Enter a Number: "))
         if userChoice == 1: 
-            #CreateWallet.main
             pass
     except ValueError as e: 
         print("Please enter a valid value.")
