@@ -1,2 +1,2 @@
-# Stellar-Wallet
+# Swerte-Wallet
  
