@@ -10,6 +10,10 @@ root.geometry('350x200')
 startWindowFrame = Frame(root)     
 learnMoreFrame = Frame(root)
 
+#for create account
+explanationFrame = Frame(root) 
+createAccountFrame = Frame(root) 
+
 
 def startWindow(): 
     learnMoreFrame.pack_forget()
@@ -17,7 +21,7 @@ def startWindow():
     welcomeText = Label(startWindowFrame, text = "Welcome to Swerte Wallet")
     welcomeText.grid(row = 0, column = 2)    
 
-    createAccountButton = Button(startWindowFrame, text = "Create a XLM Account", command = createAccount)
+    createAccountButton = Button(startWindowFrame, text = "Create a XLM Account", command = createAccountInfo)
     createAccountButton.grid(row = 2, column = 2)
 
     reloadAccountButton = Button(startWindowFrame, text = "Load an existing XLM Account", command = loadAccount)
@@ -42,8 +46,32 @@ def learnMore():
     learnMoreFrame.pack()
     
 
-def createAccount():
-    pass
+def createAccountInfo():
+    startWindowFrame.pack_forget()
+
+    #Information about how wallets work
+
+    explanationFrame.tkraise()
+
+    createAccountText = Label(explanationFrame, text = """Before we create a new account, you must know... 
+    \nUpon creating a new XLM account in this wallet, you will be given two things: \n\nA public key and a private key \n\nA public key is your
+    adddress where people can send you money, \n\nA private key is your secret key to accessing your account. Never share
+    your private key with anyone. \n\nAs long as someone else has that key, they have access to your account.""")
+    createAccountText.grid(row = 0, column = 2)
+
+    understandButton = Button(explanationFrame, text = "I understand", command = createAccount)
+    understandButton.grid( row = 2, column = 2)
+    explanationFrame.pack()
+
+
+
+def createAccount(): 
+    explanationFrame.pack_forget()
+
+
+
+
+    
 
 def loadAccount(): 
     pass
