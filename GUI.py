@@ -1,5 +1,5 @@
 from tkinter import *
-
+import AccountFunctions as AF
 #tkk? 
 
 #base for all frames
@@ -67,10 +67,21 @@ def createAccountInfo():
 
 def createAccount(): 
     explanationFrame.pack_forget()
+    createAccountFrame.tkraise()
 
 
+    #userKeyPair = AF.createNewAccount()
+    
+
+    public = "GDP3SFDLN3ZDA3FBBYC2M2SHJLVMWRFKHZX4WEN3YDF45EK2JE44V4GX"
+    private = "SB7FNMFU7QMH6ZP66OISP5A4F5VAWOU2NYXMWBVKA76D2X36NGL2KA7X"
 
 
+    accountCreatedText = Label(createAccountFrame, text = f"""Here is your account information: \nPublic Key:
+    {public} \nPrivate Key: {private} """)
+    accountCreatedText.grid(row = 0, column = 2)
+
+    createAccountFrame.pack()
     
 
 def loadAccount(): 
