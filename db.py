@@ -1,43 +1,46 @@
 import sqlite3
 
 #dropCreateAccountsTable = "DROP TABLE userAccounts "
-#curObj.execute(dropCreateAccountsTable)
+#curObjsor.execute(dropCreateAccountsTable)
 
-class UserDatabase(): 
-    def __init__(self):
-         pass
-        
+class UserDatabase():         
 
-def acccountTable(): 
-    #drops then creates for a new slate of information
-    pass
+    def getCursorObj(self): 
+        usersDB = sqlite3.connect("userDB.db")
+        return usersDB.cursor()
 
-
-def addAccount(publicKey, privateKey):
+    def dropAccountTable(self): 
+        #drops then creates for a new slate of information
+        pass
 
 
-    insertAccount1 = "INSERT INTO userAccounts(email, password) values('yes', 'HI')"
-    curObj.execute(insertAccount1)
-
-def createAccountsTable(): 
-
-    createAccountsTable = "CREATE TABLE userAccounts(email STRING, password STRING)"
-    curObj.execute(createAccountsTable) 
+    def addAccount(self, publicKey, privateKey):
 
 
-#close at end 
-def open(): 
+        insertAccount1 = "INSERT INTO userAccounts(email, password) values('yes', 'HI')"
+        self.cursorObj.execute(insertAccount1)
 
-    usersDB = sqlite3.connect("userDB.db")
-    curObj = usersDB.cursor()
+    def createAccountsTable(self): 
+
+        createAccountsTable = "CREATE TABLE userAccounts(email STRING, password STRING)"
+        self.cursorObj.execute(createAccountsTable) 
+
+
+
+    def closeDatabase(self): 
+        self.usersDB.close()
+
 
 
 def main(): 
+    uD = UserDatabase()
     getAccount = "SELECT * from userAccounts" 
-    accounts = curObj.execute(getAccount)
+    accounts = (uD.getCursorObj()).execute(getAccount)
 
     for a in accounts: 
         print(a)
 
+    uD.closeDatabase()
 
-#usersDB.close()
+
+main()
