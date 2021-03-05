@@ -1,26 +1,43 @@
 import sqlite3
 
-usersDB = sqlite3.connect("userDB.db")
+#dropCreateAccountsTable = "DROP TABLE userAccounts "
+#curObj.execute(dropCreateAccountsTable)
 
-curObj = usersDB.cursor()
+class UserDatabase(): 
+    def __init__(self):
+         pass
+        
 
-dropCreateAccountsTable = "DROP TABLE userAccounts "
-curObj.execute(dropCreateAccountsTable)
+def acccountTable(): 
+    #drops then creates for a new slate of information
+    pass
 
 
-createAccountsTable = "CREATE TABLE userAccounts(ema STRING, password STRING)"
-curObj.execute(createAccountsTable)
+def addAccount(publicKey, privateKey):
 
-insertAccount1 = "INSERT INTO userAccounts(ema, password) values('yes', 'HI')"
-curObj.execute(insertAccount1)
 
-getAccount = "SELECT * from userAccounts" 
-accounts = curObj.execute(getAccount)
+    insertAccount1 = "INSERT INTO userAccounts(email, password) values('yes', 'HI')"
+    curObj.execute(insertAccount1)
+
+def createAccountsTable(): 
+
+    createAccountsTable = "CREATE TABLE userAccounts(email STRING, password STRING)"
+    curObj.execute(createAccountsTable) 
+
 
 #close at end 
+def open(): 
 
-for a in accounts: 
-    print(a) 
-    
-usersDB.close()
+    usersDB = sqlite3.connect("userDB.db")
+    curObj = usersDB.cursor()
 
+
+def main(): 
+    getAccount = "SELECT * from userAccounts" 
+    accounts = curObj.execute(getAccount)
+
+    for a in accounts: 
+        print(a)
+
+
+#usersDB.close()

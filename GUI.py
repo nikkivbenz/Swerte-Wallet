@@ -1,5 +1,7 @@
 from tkinter import *
 import AccountFunctions as AF
+import db as DB
+
 #tkk? 
 
 #base for all frames
@@ -82,6 +84,8 @@ def createAccount():
     accountCreatedText.grid(row = 0, column = 2)
 
     createAccountFrame.pack()
+
+    DB.addAccount(public, private)
     
 
 def loadAccount(): 

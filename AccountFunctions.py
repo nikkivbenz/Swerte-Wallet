@@ -12,3 +12,17 @@ def createNewAccount():
 
     return [publicKey, privateKey]
 
+def getAccountBalance(): 
+    pass
+
+
+def getPublicKeyFromSecret(): 
+    pass
+
+
+def sendXLM(): 
+    pass
+
+def receieveXM(): 
+    #shows public address the be received at 
+    pass
