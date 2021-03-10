@@ -16,8 +16,9 @@ def getAccountBalance():
     pass
 
 
-def getPublicKeyFromSecret(): 
-    pass
+def getPublicKeyFromSecret(secretKey): 
+    public = Keypair.from_secret(secretKey)
+    return public.public_key
 
 
 def sendXLM(): 
