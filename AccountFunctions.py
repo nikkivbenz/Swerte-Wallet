@@ -37,9 +37,10 @@ def sendXLM(secret, toAddress):
     transaction.sign(source_keypair)
     response = server.submit_transaction(transaction)
 
-def receieveXM(): 
-    #shows public address the be received at 
+def pastTransactions(num):
+    #allows user to choose how many transactions back they would like to see
     pass
+
 
 
 
